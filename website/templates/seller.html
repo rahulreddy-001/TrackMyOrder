@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+  </head>
+  <body>
+    <p>
+      {% if user.is_authenticated %}
+      <h1>Welcome {{ user.username }} 🙏🏻</h1>
+      <hr />
+      <p>
+      <strong>Logged in as {{ user.username }}</strong>
+      </p>
+      <strong><a href="./logout_user">Logout</a></strong>
+      <hr>
+      <form action="generate_order" method="post">
+        {% csrf_token %}
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name">
+        <br>
+        <label for="email">Email</label>
+        <input type="text" name="email" id="email">
+        <br>
+        <label for="from">From</label>
+        <input type="text" name="from" id="from">
+        <br>
+        <label for="to">To</label>
+        <input type="text" name="to" id="to">
+        <br>
+        <label for="size">Size</label>
+        <select name="size" id="size">
+          <option value="xs">Very Small</option>
+          <option value="s">Small</option>
+          <option value="m">Medium</option>
+          <option value="l">Large</option>
+          <option value="xl">Extra Large</option>
+          <option value="xxl">Extra Extra Large</option>
+        </select>
+        <br>
+        <label for="weight">Weight</label>
+        <input type="number" name="weight" id="weight">
+        <br>
+        <input type="submit" value="Generate Order">
+      </form>
+
+      {% else %}
+      <strong>Not logged in</strong>
+      <br />
+      <strong
+        ><a href="./login">Login</a> ||
+        <a href="./regester">Regester</a></strong
+      >
+      {% endif %}
+    </p>
+  </body>
+</html>

@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Warehouse</title>
+    <title>Out For Delivery</title>
   </head>
   <body>
-    <h3>Warehouse</h3>
+    <h3>Delivery</h3>
     <strong><a href="./logout_user">Logout</a></strong>
     <hr />
-    <form action="warehouse_log" method="post">
+    <form action="out_delivery" method="post">
       {% csrf_token %}
       <label for="orderid">Order</label>
       <input type="text" name="orderid" id="orderid" />
